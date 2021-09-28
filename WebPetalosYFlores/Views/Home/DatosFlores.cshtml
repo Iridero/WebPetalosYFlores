@@ -1,0 +1,81 @@
+﻿@using WebPetalosYFlores.Models
+
+@model Datosflore
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Flor</title>
+    <link href="~/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="main">
+        <div id="top">
+            <div id="logo">
+                <h1>
+                    <a href="Default.aspx">Pétalos Y Flores</a>
+                </h1>
+                <p>
+                    Programación Web
+                </p>
+            </div>
+            <div id="divisor">
+            </div>
+        </div>
+        <div id="center">
+            <div id="content">
+                <div class="post">
+                    <h2 class="titulo">@Model.Nombrecomun</h2>
+                    <div class="entrada">
+                        <h4>Nombre científico o latino:</h4>
+                        <p>@Model.Nombrecientifico</p>
+                        <h4>Nombre común:</h4>
+                        <p>@Model.Nombrecomun</p>
+                        <h4>Origen:</h4>
+                        <p>@Model.Origen</p>
+                        <h4>Descripción:</h4>
+                        <p>
+                            @Model.Descripcion
+                        </p>
+
+                        <div id="imagenes">
+                            @foreach (var imagen in Model.Imagenesflores)
+                            {
+                                <img title="@Model.Nombre" src="~/images/@imagen.Nombreimagen"/>
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sidebar">
+                <ul>
+                    <li>
+                        <h2>Menú</h2>
+
+                        <ul>
+                            <li><a href='Flores.aspx'>Flores</a></li>
+                            <li><a href='Flores.aspx'>Flores</a></li>
+                            <li><a href='Flores.aspx'>Flores</a></li>
+                            <li><a href='Flores.aspx'>Flores</a></li>
+                        </ul>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="bottom">
+        </div>
+    </div>
+    <div id="footer">
+        <p>
+            Ejercicio de Manejo de Base de Datos Con ASP.NET
+        </p>
+    </div>
+</body>
+</html>

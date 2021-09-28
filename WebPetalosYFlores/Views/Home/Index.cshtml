@@ -1,0 +1,67 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using WebPetalosYFlores.Models;
+@using WebPetalosYFlores.Repositories;
+
+@model IEnumerable<Datosflore>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Petalos y flores</title>
+    <link href="~/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="main">
+        <div id="top">
+            <div id="logo">
+                <h1>
+                    <a href="Default.aspx">Pétalos Y Flores</a>
+                </h1>
+                <p>
+
+                </p>
+            </div>
+            <div id="foto">
+                <img src="images/img09.jpg" alt="" />
+            </div>
+        </div>
+        <div id="center">
+            <div id="content2">
+                <div class="post">
+                    <h2 class="titulo">Bienvenido a Petalos y Flores</h2>
+                    <div class="entrada">
+                        <p>
+                            <strong>Petalos y Flores </strong>, es una página para practicar el manejo de base
+                            de datos utilizando MySQL Server y ASP.NET Core.
+                        </p>
+                        <p>
+                            De clic en el nombre de una flor en el menú de la parte inferior para ver su descripción
+                            y caracterisiticas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="mainMenu">
+                <ul>
+                    @foreach (var flor in Model)
+                    {
+                        <li><a asp-action="Flor" asp-route-id="@flor.Idflor"  >@flor.Nombre</a></li>
+                    }
+                    
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div id="footer">
+        <p>
+            Ejercicio de Manejo de Base de Datos Con ASP.NET Core
+        </p>
+    </div>
+</body>
+</html>
